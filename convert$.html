@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyendoitiente</title>
+</head>
+<link rel="stylesheet" href="trangchuyendoitiente.css">
+<script src="trangchuyendoitiente.js"></script>
+<body>
+
+<form method="get" action="trangchuyendoitiente.html">
+
+    <legend></legend>
+
+        <table width="500px" height="100px">
+            <tr>
+                <th>Amount</th>
+                <th>From Currency</th>
+                <th>To Curency</th>
+            </tr>
+
+            <tr>
+                <label id="Amount">
+                    <td>
+                        <input id="nhapvao" type="number">
+                    </td>
+                </label>
+                <label id="From">
+                    <td>
+                        <select name="tiente" id="tiente">
+                        <option name="vnd" value="23000">vnd</option>
+
+                        <option name="usd" value="1">usd</option>
+                        </select>
+                    </td>
+                </label>
+                <label id="To">
+                    <td>
+                        <select name="tiente1" id="tiente1">
+                        <option name="vn1" value="1">usd</option>
+
+                        <option name="usd1" value="23000">vnd</option>
+                        </select>
+                    </td>
+
+                </label>
+                <td>
+                <input  type="button" id="convert" value="convert" onclick="changemoney()">
+
+                </td>
+                </tr>
+                <br>
+            </tr>
+        </table>
+
+</form>
+<br>
+<p id="show"></p>
+
+</body>
+</html>

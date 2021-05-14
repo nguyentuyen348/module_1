@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiemtranamnhuan</title>
+</head>
+<body>
+<script>
+  let year = parseInt(prompt("enter a year"));
+  let lanamnhuan = false;
+  let sochiahetcho4 = year %4 ==0;
+  if (sochiahetcho4){
+      let sochiahetcho100 = year %100 ==0;
+      if (sochiahetcho100) {
+          let sochiahetcho400 = year % 400 == 0;
+          if (sochiahetcho400) {
+              lanamnhuan = true;
+          }
+      }
+          else{
+             lanamnhuan =true;
+          }
+      }
+
+  if(lanamnhuan){
+      alert(year+'là năm nhuận')
+  }else {
+      alert(year+'là năm không nhuận')
+  }
+
+</script>
+</body>
+</html>

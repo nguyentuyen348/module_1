@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>switch</title>
+</head>
+<body>
+<form>
+    <img id="bkb" src="https://cf.shopee.ph/file/660ec67a99ab918c395bf4ff888267c2"
+         alt="ball" style="width: 300px">
+    <p>click the button</p>
+    <input id="click" onclick="moveRight();" type="button" value="click"/>
+</form>
+<script>
+    let imgObj = null;
+    imgObj = document.getElementById('bkb');
+
+    function innit (){
+        imgObj = document.getElementById('bkb');
+        imgObj.style.position='relative';
+        imgObj.style.left= '0px';
+    }
+    function moveRight(){
+        imgObj.style.left = parseInt(imgObj.style.left) + 10 +'px';
+    }
+    window.onload = innit ;
+</script>
+
+</body>
+</html>

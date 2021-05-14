@@ -1,0 +1,21 @@
+#img {
+    background: #2f416f; text-align: center;
+}
+#infor {
+    background: coral;
+}
+body {
+    background: #f8c0c0;
+}
+#muctieu:hover {
+    background: #ecba5e;
+}
+#kynang:hover {
+    background: #ecba5e;
+}
+#hocvan:hover {
+    background: #ecba5e;
+}
+#kin:hover {
+    background: #ecba5e;
+}
