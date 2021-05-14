@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>how many day in the month</title>
+</head>
+<body>
+<p id="show"> </p>
+<script>
+  let thang=parseInt(prompt('enter a month'));
+  switch (thang) {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 9:
+    case 11:
+      document.getElementById('show').innerHTML = 'tháng ' + thang + ' có 31 ngày'
+      break;
+      case 2:
+        document.getElementById('show').innerHTML = 'tháng ' + thang + ' có 28 ngày ( năm nhuận là 29 ngày )'
+break;
+        default:
+          document.getElementById('show').innerHTML = 'tháng ' + thang +' có 30 ngày'
+  }
+
+
+
+</script>
+
+</body>
+</html>
