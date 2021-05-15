@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<img src="anh1.jpg" height="284" width="662" id="anh1" onclick="changeImg1()"/>
+<img src="anh2.jpg" height="284" width="662" id="anh2" onclick="changeImg2()"/>
+<h1 id="show" style="color: red"></h1>
+<script>
+    let count = 1;
+    let count2 = 1;
+    let anh1 = document.getElementById("anh1");
+    let anh2 = document.getElementById("anh2");
+
+    function changeImg1() {
+        if (count == 1) {
+            anh1.src = 'anh2.jpg'
+            count++;
+        } else {
+            if (count == 2) {
+                anh1.src = 'anh3.jpg'
+                count++;
+            } else {
+                if (count == 3) {
+                    anh1.src = 'anh1.jpg'
+                    count = 1;
+                }
+            }
+        }
+        check();
+    }
+
+    function changeImg2() {
+        if (count2 == 1) {
+            anh2.src = 'anh2.jpg'
+            count2++;
+        } else
+            if (count2 == 2) {
+                anh2.src = 'anh3.jpg'
+                count2++;
+            } else
+                if (count2 == 3) {
+                    anh2.src = 'anh1.jpg'
+                    count2 = 1;
+                }
+
+
+        check();
+    }
+
+    function check() {
+        if (anh1.src == anh2.src) {
+            document.getElementById("show").innerText = "Bạn đã thắng"
+        } else {
+            document.getElementById("show").innerText = ""
+
+        }
+    }
+</script>
+</body>
+</html>

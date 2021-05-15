@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>puzzle</title>
+</head>
+<body>
+<img id="anh1" src="anh1.jpg" alt="anh1" width="400" height="400" onclick="changeimg()">
+<img id="anh2" src="anh2.jpg" alt="anh2" width="400" height="400" onclick="changeimg2()">
+<img id="anh3" src="anh3.jpg" alt="anh3" width="400" height="400" onclick="changeimg3()">
+<h1 id="show" style="color: red"></h1>
+<script>
+    let counter = 1
+    let counter2 = 1
+    let counter3 = 1
+
+    let anh1 = document.getElementById('anh1')
+    let anh2 = document.getElementById('anh2')
+    let anh3 = document.getElementById('anh3')
+
+    function changeimg() {
+        if (counter == 1) {
+            anh1.src = "anh2.jpg"
+            counter++
+        } else {
+            if (counter == 2) {
+                anh1.src = "anh3.jpg"
+                counter++
+            } else {
+                if (counter == 3) {
+                    anh1.src = "anh1.jpg"
+                    counter = 1
+                }
+            }
+        }
+
+        check();
+    }
+
+
+    function changeimg2() {
+        if (counter2 == 1) {
+            anh2.src = "anh3.jpg"
+            counter2++
+        } else {
+            if (counter2 == 2) {
+                anh2.src = "anh1.jpg"
+                counter2++
+            } else {
+                if (counter2 == 3) {
+                    anh2.src = "anh2.jpg"
+                    counter2 = 1
+                }
+            }
+        }
+        check()
+    }
+
+
+    function changeimg3() {
+        if (counter3 == 1) {
+            anh3.src = "anh2.jpg"
+            counter3++
+        } else {
+            if (counter3 == 2) {
+                anh3.src = "anh3.jpg"
+                counter3++
+            } else {
+                if (counter3 == 3) {
+                    anh3.src = "anh1.jpg"
+                    counter3 = 1
+                }
+            }
+        }
+        check();
+    }
+
+
+    function check() {
+        if (anh1.src === anh2.src && anh1.src===anh3.src) {
+            document.getElementById("show").innerHTML = "win"
+        } else {
+            document.getElementById("show").innerHTML = ""
+        }
+    }
+</script>
+</body>
+</html>

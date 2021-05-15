@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>doyouloveme</title>
+</head>
+<body>
+<h1>doyouloveme?</h1>
+<p id="show"></p>
+<button id="yes" onclick="showmessage()">Yes</button>
+<input type="button" id="no" value="No" onmouseover="move()" style="position: absolute; top:80px;left: 60px">
+<script>
+function showmessage(){
+  document.getElementById("show").innerHTML='yes, that choice is correct'
+}
+function move(){
+  let top = document.getElementById("no");
+  let left = document.getElementById("no");
+  let x = Math.round(Math.random()*window.innerWidth);
+  let y = Math.round(Math.random()*window.innerHeight);
+
+  top.style.top =  y +'px';
+
+  left.style.left = x +'px';
+
+}
+</script>
+</body>
+</html>
