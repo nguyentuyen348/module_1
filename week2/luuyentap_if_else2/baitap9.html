@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canh cua mot tam giac</title>
+</head>
+<body>
+<script>
+  let a = parseInt(prompt('nhap canh a'))
+  let b = parseInt(prompt('nhap canh b'))
+  let c = parseInt(prompt('nhap canh c'))
+  let sum1=a+b
+  let sum2=b+c
+  let sum3=a+c
+  if (a>0&&b>0&&c>0){
+      if (sum1>c&&sum2>a&&sum3>b){
+          document.write('do dai cac canh cua tam giac la: '+ a +','+ b+',' + c)
+      }
+      else {
+          document.write('khong phai do dai canh cua mot tam giac')
+      }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkbox</title>
+</head>
+<style>
+    td {
+        font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+        color: red;
+    }
+</style>
+<body>
+<table border="">
+    <tr>
+        <td>good
+        <input type="checkbox" id="cb1" onclick="check()" value="good"> <br>
+        </td>
+    </tr>
+
+    <tr>
+        <td>fast
+        <input type="checkbox" id="cb2" onclick="check()" value="fast"> <br>
+        </td>
+    </tr>
+
+    <tr>
+        <td>cheap
+        <input type="checkbox" id="cb3" onclick="check()" value="cheap"><br>
+        </td>
+    </tr>
+</table>
+</body>
+<script>
+    let count = 1;
+
+    function check() {
+        let cb1 = document.getElementById('cb1').checked;
+        let cb2 = document.getElementById('cb2').checked;
+        let cb3 = document.getElementById('cb3').checked;
+
+        if (cb1 == true && cb2 == true && cb3 == true) {
+            if (count == 1) {
+                document.getElementById('cb3').checked = false;
+                count++;
+            } else
+                if (count == 2) {
+                    document.getElementById('cb2').checked = false;
+                    count++;
+                } else {
+                    document.getElementById('cb1').checked = false;
+                    count = 1;
+                }
+            }
+        }
+
+
+</script>
+</body>
+</html>

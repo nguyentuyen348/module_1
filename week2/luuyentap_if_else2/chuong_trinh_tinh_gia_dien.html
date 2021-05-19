@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính giá điện</title>
+</head>
+<body>
+<script>
+    let evn= parseInt(prompt('số điện đã dùng'))
+    if (evn>0&&evn<51){
+        let $=evn*1678
+        alert($ +' nghìn đồng')
+    }else if (evn<101){
+        let $1=50*1678+(evn-50)*1734
+        alert($1+' nghìn đồng')
+    }else if (evn<201){
+        let $2=50*1678+50*1734+(evn-100)*2014
+        alert($2+' nghìn đồng')
+    }else if (evn<301){
+        let $3=50*1678+50*1734+100*2014+(evn-200)*2536
+        alert($3+' nghìn đồng')
+    }else if (evn<401){
+        let $4=50*1678+50*1734+100*2014+100*2536+(evn-300)*2834
+        alert($4+' nghìn đồng')
+    } else if (evn>400) {
+        let $5 = 50 * 1678 + 50*1734 + 100*2014+ 100*2536 + 100*2834 + (evn-400)* 2927
+        alert($5 + ' nghìn đồng')
+    }
+</script>
+</body>
+</html>
