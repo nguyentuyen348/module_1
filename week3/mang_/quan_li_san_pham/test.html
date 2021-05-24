@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý sản phẩm</title>
+</head>
+<style>
+  img{
+    height: 100px;
+    width: 100px;
+  }
+</style>
+<body>
+<button onclick="showFormAdd()">Thêm sản phẩm</button>
+<form id="formAdd" style="display: none">
+  <fieldset>
+    <legend>Add Product</legend>
+    <input type="text" id="name-product" placeholder="Tên sản phẩm">
+    <input type="number" id="price-product" placeholder="Giá sản phẩm">
+    <input type="text" id="image-product" placeholder="Link ảnh sản phẩm">
+    <button type="button" onclick="addProduct()">Thêm nào</button>
+  </fieldset>
+</form>
+<table id="list-product" border="1px" width="80%" style="margin: auto"></table>
+<script>
+  let products = loadData();
+
+  function showFormAdd() {
+    let form = document.getElementById('formAdd');
+    if(form.style.display == 'none')
+      form.style.display = 'block'
+    else
+      form.style.display = 'none';
+  }
+  function showList() {
+    let str = `<tr>
+                    <th>Ảnh minh hoạ</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th colspan="2">Thao tác</th>
+               </tr>`;
+
+    for (let i = 0; i < products.length; i++) {
+      str += `<tr>
+                <td><img src="${products[i][2]}"></td>
+                <td>${products[i][0]}</td>
+                <td>${products[i][1]}</td>
+                <td><button onclick="editProduct(${i})">Edit</button></td>
+                <td><button onclick="deleteProduct(${i})">Delete</button></td>
+            </tr>`;
+    }
+
+    document.getElementById('list-product').innerHTML = str;
+    saveData();
+  }
+
+  showList();
+
+  function deleteProduct(index) {
+    products.splice(index,1);
+    showList();
+  }
+
+  //Thêm mới sản phẩm
+  function addProduct() {
+    // let name = prompt("Nhập tên");
+    // let price = prompt("Nhập giá");
+    // let image = prompt("Nhập link ảnh");
+    let name = document.getElementById('name-product').value;
+    let price = document.getElementById('price-product').value;
+    let image = document.getElementById('image-product').value;
+
+    let product = [name,price,image];
+    products.unshift(product);
+    showList();
+
+  }
+
+  //Sửa 1 sản phẩm
+  function editProduct(index) {
+    products[index][0] = prompt('Tên mới',products[index][0]);
+    products[index][1] = prompt('Giá mới',products[index][1]);
+    products[index][2] = prompt('Link ảnh mới',products[index][2]);
+    showList();
+  }
+  function listProduct() {
+    let str = '';
+    for (let i = 0; i < products.length; i++) {
+      str += `
+              <div class="card">
+                <img src="${products[i][2]}" alt="Denim Jeans" style="width:100%">
+                <h1 id="name-product"><i class="fas fa-coffee"></i>
+${products[i][0]}</h1>
+                <p class="price">${products[i][1]} VNĐ</p>
+                <p><button>Add to Cart</button></p>
+              </div>
+    `;
+    }
+
+    document.getElementById('products').innerHTML = str;
+  }
+
+  // listProduct();
+
+  //Lưu lại thì dùng localstorage
+  function saveData() {
+    localStorage.setItem('product',JSON.stringify(products));
+  }
+  //Lay lai du lieu
+  function loadData() {
+    if(localStorage.hasOwnProperty('product')){
+      let data = JSON.parse(localStorage.getItem('product'));
+      return data;
+    }else {
+      return [];
+    }
+  }
+</script>
+</body>
+</html>

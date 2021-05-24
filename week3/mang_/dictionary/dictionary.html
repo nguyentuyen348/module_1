@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+</style>
+<body>
+<h3>Dictionary UK-VN</h3>
+<input type="text" id="word" style="color: red">
+<!--<select name="UK-Viet" id="">
+    <option>UK-Viet</option>
+    <option>Viet-UK</option>
+</select>-->
+<input type="button" value="search" onclick="translate1();">
+<p id="show"></p>
+<script>
+    function translate1() {
+        let word1 = document.getElementById('word').value;
+        let str = word1.toString();
+        let english = [
+            "black",
+            "white",
+            "green",
+            "red"
+        ];
+        let vietnamese = [
+            "đen",
+            "trắng",
+            "xanh lá",
+            "đỏ"
+        ]
+        let flag = true;
+        for (let i = 0; i < english.length; i++) {
+            if (str === english[i]) {
+                flag = true;
+                document.getElementById('show').innerHTML = 'từ ' + english[i] + ' trong tiếng Việt là ' + vietnamese[i];
+                break
+            }
+            if (str === vietnamese[i]) {
+                flag = true;
+                document.getElementById('show').innerHTML = 'từ ' + vietnamese[i] + ' trong tiếng Anh là ' + english[i];
+                break
+            } else {
+                flag = false;
+                document.getElementById('show').innerHTML = 'khong co trong tu dien cua toi'
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>

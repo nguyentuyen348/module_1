@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tim min</title>
+</head>
+<body>
+<script>
+    function findMin(arr) {
+        let min = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            if (min < arr[i]) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    let arr1 = [6, 56, 9, 168, 659, 956];
+    let min1 = findMin(arr1);
+    alert(min1);
+    let arr2=[0,0,0,0];
+    let min2 = findMin(arr2);
+    alert(min2);
+</script>
+</body>
+</html>

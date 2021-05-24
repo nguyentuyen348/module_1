@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr=[1,2,3,2,6,9,8,5,4];
+
+    function add(){
+
+        let index = +prompt('vi tri muon them');
+        let value= prompt('phan tu muon them');
+        for (let i = arr.length; i>=index ; i--) {
+            arr[i+1] = arr[i];
+        }
+            arr[index]=value;
+        console.log(arr)
+        return arr;
+        }
+    document.write(add());
+
+</script>
+</body>
+</html>

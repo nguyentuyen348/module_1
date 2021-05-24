@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>caroGame</title>
+</head>
+<style>
+    td {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: 40px;
+    }
+</style>
+<body>
+<table id="caroGame" border="1px" cellspacing="0"></table>
+<script>
+    const value_x = 'X';
+    const value_o = 'O';
+    const player1 = 1;
+    const player2 = 2;
+    const empty = '';
+    let turn = 1;
+
+    function createBoard() {
+        let hangngang = 10;
+        let hangdoc = 10;
+
+        let str = '';
+        for (let i = 0; i < hangngang; i++) {
+            str += '<tr>';
+            for (let j = 0; j < hangdoc; j++) {
+                str += `<td id="cell-${i}-${j}" onclick="cell({i},{j})"></td>`;
+            }
+            str += '</tr>';
+        }
+        document.getElementById('caroGame').innerHTML = str;
+    }
+
+    createBoard();
+
+    function cell(i,j) {
+        let td1 = document.getElementById(`cell-${i}-${j}`).innerHTML;
+        if (td1.innerHTML === empty) {
+            if (turn === player1) {
+                td1.innerHTML = value_x;
+                turn = player2;
+            } else {
+                td1.innerHTML = value_o;
+                turn = player1;
+            }
+        }
+        checkWin(i, j)
+    }
+
+    function checkWin(i, j) {
+        checkNgang(i, j);
+        checkDoc(i, j);
+    }
+
+    function checkNgang(i, j) {
+        let count = 1;
+        let indexJ = 1;
+        while (getValue(i, j) === getValue(i, j + indexJ)) {
+            count++;
+            indexJ++;
+        }
+        indexJ = 1
+        while (getValue(i, j) === getValue(i, j - indexJ)) {
+            count++;
+            indexJ++;
+        }
+
+        if (count >= 5) {
+            alert('Win rồi');
+        }
+    }
+
+    function checkDoc(i, j) {
+        let count = 1;
+        let indexI = 1;
+        while (getValue(i, j) === getValue(i + indexI, j)) {
+            count++;
+            indexI++;
+        }
+        indexI = 1;
+        while (getValue(i, j) === getValue(i - indexI, j)) {
+            count++;
+            indexI++;
+        }
+
+        if (count >= 5) {
+            alert('Win rồi');
+        }
+    }
+
+    function getValue(i, j) {
+        let result = document.getElementById(`cell-${i}-${j}`).innerHTML;
+        return result;
+    }
+</script>
+</body>
+</html>

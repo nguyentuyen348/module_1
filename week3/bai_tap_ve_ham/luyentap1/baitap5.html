@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr =
+        ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let arr1 =
+        ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+
+    function star() {
+        let star = prompt('enter star')
+        for (let i = 0; i < arr.length; i++) {
+            if (star === arr[i]) {
+                alert(arr[i]+' '+arr1[i])
+                }
+            }
+        }
+
+    star();
+</script>
+</body>
+</html>

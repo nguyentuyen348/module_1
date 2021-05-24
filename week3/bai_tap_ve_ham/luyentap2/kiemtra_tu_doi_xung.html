@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function checkstr() {
+
+        let str = prompt('enter string')
+        let x = str.split('');
+        for (let i = 0; i < x.length / 2; i++) {
+            if (x[i] !== x[x.length - 1 - i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    if (checkstr()==true){
+        alert(true)
+    }else {
+        alert(false)
+    }
+
+</script>
+</body>
+</html>

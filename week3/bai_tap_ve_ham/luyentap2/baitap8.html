@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>changeNumber</title>
+</head>
+<body>
+<script>
+
+    function addAndchangeToArr() {
+        let arr = [];
+        for (let i = 0; i < 5; i++) {
+            arr[i] = +prompt('enter number')
+        }
+        document.write(arr + '<br>');
+              let fisrt=0;
+              let last=arr.length-1;
+              while (fisrt<last){
+                  let b= arr[fisrt];
+                  arr[fisrt]=arr[last];
+                  arr[last]=b;
+                  fisrt++;
+                  last--;
+              }
+              document.write(arr);
+      /*  let n = arr.length-1;
+        for (let i =0; i<arr.length;i++) {
+            let b = arr[i];
+            arr[i] = arr[n];
+            arr[n] = b;
+            n--;
+        }
+
+        document.write(arr)
+*/
+    }
+
+    addAndchangeToArr();
+
+</script>
+</body>
+</html>

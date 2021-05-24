@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Primes</title>
+</head>
+<body>
+<script>
+
+    function isPrime() {
+        let N=+prompt('enter number')
+        let flag = true;
+        if (N < 2) {
+            flag = false;
+        }
+        if (N == 2) {
+            flag = true;
+        }
+        let i = 2;
+        while (i < N) {
+            if (N % i == 0) {
+                flag = false;
+            }
+            i++;
+        }
+        if (flag){
+            alert(N+'la so nguyen to')
+        }else{
+            alert(N+'khong phai so nguyen to')
+        }
+
+        return flag;
+    }
+    isPrime();
+</script>
+</body>
+</html>
