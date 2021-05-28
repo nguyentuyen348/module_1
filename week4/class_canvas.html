@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circle Canvas</title>
+    <script src="class_Circle.js"></script>
+</head>
+<body>
+<canvas id="myCanvas" width="600px" height="400px" style="border: 1px solid black; background-color: #ffffff"></canvas>
+</body>
+
+<script>
+    let canvas = document.getElementById('myCanvas');
+    let pen = canvas.getContext('2d');
+    let circles = []
+
+    //Math.floor - lam tron xuong
+    //Math.round - Lam tron dung
+    //Math.ceil - Lam tron len
+
+    // pen.beginPath();
+    // pen.rect(canvas.width/2-100,canvas.height/2-50,200,100);
+    // pen.lineWidth = 1;
+    // pen.stroke();
+    // pen.fillStyle = 'pink';
+    // pen.fill();
+    // pen.closePath();
+    //
+    // pen.beginPath();
+    // pen.arc(canvas.width/2,canvas.height/2,50,0,2*Math.PI);
+    // pen.strokeStyle = 'red';
+    // pen.lineWidth = 10;
+    // pen.stroke();
+    // pen.fillStyle = 'green';
+    // pen.fill();
+    // pen.closePath();
+
+    function creatCircle(number) {
+        for (let i = 0; i < number; i++) {
+            let x = randomNumber(0,canvas.width);
+            let y = randomNumber(0,canvas.height);
+            let radius = randomNumber(20,50);
+            let color = randomColor();
+            let speed = randomNumber(30,50);
+            let circle = new Circle(x,y,radius,color,speed);
+            console.log(circle)
+            circles.push(circle);
+        }
+    }
+    function randomNumber(min,max) {
+        return Math.floor(Math.random()*max-min)+min;
+    }
+    function randomColor() {
+        let r = randomNumber(0,255);
+        let g = randomNumber(0,255);
+        let b = randomNumber(0,255);
+        // return "rgb("+r+","+g+","+b+')';
+        return `rgb(${r},${g},${b})`;
+    }
+
+    // creatCircle(10);
+    let circle1 = new Circle(100,100,50,'blue');
+    let circle2 = new Circle(300,100,50,'red');
+    circle1.render(canvas);
+    circle2.render(canvas);
+    circles.push(circle1)
+    // renderAllCircle();
+    // let speedX = 5;
+    // let speedY = 5;
+    function move() {
+        pen.clearRect(0,0,canvas.width,canvas.height);
+        // checkCrashAll();
+        moveCircle();
+        if(isCrash(circle1,circle2)){
+            alert('Va cham roi');
+        }
+        renderAllCircle();
+    }
+
+    function moveCircle() {
+        // console.log(circles[0].radius);
+        for (let i = 0; i < circles.length; i++) {
+            circles[i].x += circles[i].speedX;
+            circles[i].y += circles[i].speedY;
+            if(circles[i].x > canvas.width-circles[i].radius || circles[i].x < circles[i].radius){
+                circles[i].speedX = -circles[i].speedX;
+            }
+            if(circles[i].y > canvas.height-circles[i].radius || circles[i].y < circles[i].radius){
+                circles[i].speedY = -circles[i].speedY;
+            }
+
+        }
+    }
+    function renderAllCircle() {
+        for (let i = 0; i < circles.length; i++) {
+            circles[i].render(canvas);
+        }
+    }
+
+    function isCrash(obj1,obj2) {
+        let left1 = obj1.x - obj1.radius;
+        let right1 = obj1.x + obj1.radius;
+        let top1 = obj1.y - obj1.radius;
+        let bottom1 = obj1.y + obj1.radius;
+
+        let left2 = obj2.x - obj2.radius;
+        let right2 = obj2.x + obj2.radius;
+        let top2 = obj2.y - obj2.radius;
+        let bottom2 = obj2.y + obj2.radius;
+        if(top1 < bottom2 || right1 < left2 || bottom1 > top2 || left1 > right2){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    function checkCrashAll() {
+        for (let i = 0; i < circles.length; i++) {
+            for (let j = 0; j < circles.length; j++) {
+                if(isCrash(circles[i],circles[j]) && circles[i] !== circles[j]){
+                    circles.splice(j,1);
+                    circles.splice(i,1);
+                    break;
+                }
+            }
+        }
+    }
+    setInterval(move, 60);
+
+
+</script>
+</html>

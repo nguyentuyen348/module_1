@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thực hành vẽ hình tròn canvas</title>
+    <script src="class_Circle.js"></script>
+</head>
+<body>
+<canvas id="myCanvas" width="1600" height="900"
+        style="border:1px solid black ;background: #f8c0c0 "></canvas>
+</body>
+<script>
+    let canvas=document.getElementById('myCanvas');
+    let pen = canvas.getContext('2d');
+
+    pen.beginPath();
+    pen.rect(canvas.width/2-100,canvas.height/2-50,200,100)
+    pen.stroke();
+    pen.fillStyle= 'white';
+    pen.fill();
+    pen.closePath();
+
+    pen.beginPath();
+    pen.arc(canvas.width/2,canvas.height/2,25,0,2*Math.PI);
+    pen.stroke();
+    pen.fillStyle= 'red';
+    pen.fill();
+    pen.closePath();
+
+/*
+    function creatCircle(number) {
+        for (let i = 0; i < number; i++) {
+            let x = randomNumber(0,canvas.width);
+            let y = randomNumber(0,canvas.height);
+            let radius = randomNumber(70,100);
+            let color = randomColor();
+            let circle = new Circle(x,y,radius,color);
+             circle.renderImg(canvas);
+        }
+    }
+    function randomNumber(min,max) {
+        return Math.floor(Math.random() * max - min) + min;
+    }
+    function randomColor() {
+        let r = randomNumber(0,255);
+        let g = randomNumber(0,255);
+        let b = randomNumber(0,255);
+        // return "rgb("+r+","+g+","+b+')';
+        return `rgb(${r},${g},${b})`;
+    }
+    creatCircle(10);*/
+
+</script>
+</html>

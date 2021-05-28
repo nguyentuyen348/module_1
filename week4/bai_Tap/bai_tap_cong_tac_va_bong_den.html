@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>switchButton vs electricLamp</title>
+</head>
+<body>
+<script>
+    class battery {
+        constructor(energy) {
+            this.energy = energy;
+        }
+
+        setEnergy(energy) {
+            this.energy = energy;
+        }
+
+        getEnergy(energy) {
+            return this.energy;
+        }
+
+        decreaseEnery(enrgy) {
+            if (this.energy > 0) {
+                this.energy--;
+            }
+        }
+
+
+    };
+
+    class FlashLamp {
+        constructor(battery, status) {
+            this.battery = battery;
+
+            this.status = status;
+        }
+
+        setbattery(battery) {
+            this.battery = battery;
+        }
+
+        getbattery(battery) {
+            return this.battery;
+        }
+
+        getlight() {
+            if (this.status === true && this.battery.energy > 0) {
+                alert('lighting');
+                this.battery.decreaseEnery();
+
+            } else {
+                alert('not lighting');
+            }
+        }
+
+        turnOn() {
+            this.status = true;
+
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+    }
+
+    let baterry1 = new battery(10);
+    console.log(baterry1.getEnergy())
+    let flash = new FlashLamp();
+    flash.setbattery(baterry1);
+    console.log(flash.getbattery());
+    flash.turnOn();
+    flash.getlight();
+    console.log(flash.getbattery());
+
+
+
+</script>
+
+</body>
+</html>

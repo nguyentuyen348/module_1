@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thực hành khởi tạo class (Date)</title>
+</head>
+<body>
+<script>
+    class Date {
+        constructor(day, month, year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+
+        getDay(day) {
+            return this.day;
+        }
+
+        getMonth(month) {
+            return this.month;
+        }
+
+        getYear(year) {
+            return this.year;
+        }
+
+        setDay(day) {
+            this.day = day;
+        }
+
+        setMonth(month) {
+            this.month = month;
+        }
+
+        setYear(year) {
+            this.year = year;
+        }
+    }
+
+    let date = new Date(24, 1, 2021);
+
+    /*   let day = date.getDay();
+       let month = date.getMonth();
+       let year = date.getYear();
+       alert(day + '/' + month + '/' + year);*/
+
+    date.setDay(5);
+    date.setMonth(5);
+    date.setYear(2019);
+
+  document.write(toString(date))
+
+
+
+</script>
+</body>
+</html>

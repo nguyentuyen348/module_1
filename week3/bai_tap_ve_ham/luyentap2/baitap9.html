@@ -14,15 +14,13 @@
         }
         document.write(arr+'<br>');
         let element=prompt('enter string want to check');
-        let count=0;
-        let j=0;
-        let flag=true;
-        while (element===arr[j]){
-            alert('yes')
-            j+=1;
-            count+=1;
+        for (let i = 0; i < arr.length; i++) {
+            if(arr[i]===element){
+                document.write('trong mảng có phần tử '+ element);
+            }else {
+                document.write('-1')
             }
-        document.write(count);
+        }
     }
 
     add_to_arr();
