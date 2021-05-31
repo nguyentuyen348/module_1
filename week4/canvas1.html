@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" height="400" width="600" style="border:5px ; solid-color: red ;background-color: #3366ff">
+    <script>
+        let canvas = document.getElementById('myCanvas');
+   //     let ctx = canvas.getContext('2d');
+        let circle=[];
+ /*       ctx.arc(100, 100, 50, 0, 2 * Math.PI);
+        ctx.strokeStyle = 'red';
+        ctx.stroke();
+        ctx.fillStyle = 'yellow';
+        ctx.fill();
+*/
+        class Circle {
+            constructor() {
+                this.x = x;
+                this.y = y;
+                this.r = number ;
+                this.color = color;
+            }
+
+            render(canvas) {
+                let ctx = canvas.getContext('2d');
+                pen.beginPath();
+                ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+                ctx.fillStyle =this.color;
+                ctx.fill();
+                pen.closePath();
+            }
+        }
+        let circle1=new Circle(200,200,50,'black');
+        let circle2=new Circle(100,200,50,'red');
+        circle.push(circle1);
+        circle.push(circle2);
+        circle1.render(canvas);
+        circle2.render(canvas);
+
+
+
+
+
+    </script>
+</canvas>
+</body>
+</html>

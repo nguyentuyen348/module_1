@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>myG</title>
+</head>
+<style>
+    body{
+        background: url("http://www.bestbackgroundwallpaper.com/wp-content/uploads/2020/09/fathers-stuff-ultra-hd-wallpaper-for-4k-uhd-widescreen-desktop-tablet-smartphone-5f6c9a490b1e1.jpg");
+    }
+</style>
+
+
+
+<body>
+<audio id="gameMusic"> <source src="Envy-Piano-I.mp3" type="audio/mpeg">  </audio>
+<h1 style="text-align: center;color: #3366ff ">Tetris Game</h1>
+<div class="game" style="text-align: center">
+    <div class="score-box" style="color: #f8c0c0;font-size: 25px">
+        Score: <div id="score">0</div>
+        <div id="gameover" style="font-size: 40px;color: red"></div>
+        <input type="button" value="START" id="start" onclick="drop();playMusic()" style="font-size: 20px;background: yellow ">
+      <!--  <input type="button" value="PAUSE" id="pause" >-->
+    </div>
+    <canvas id="canvas" width="400" height="800"></canvas>
+</div>
+
+<script src="shape.js"></script>
+<script src="game_Tetris.js"></script>
+
+</body>
+</html>

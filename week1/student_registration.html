@@ -10,6 +10,7 @@
 </style>
 <body>
 <h2>ĐĂNG KÝ HỌC VIÊN</h2>
+<form action="">
 <fieldset>
 
     <legen> Thông tin cá nhân: </legen>
@@ -22,8 +23,8 @@
     <input type="text"></th>
     <tr/>
 <tr> <th>Giới tính: <th>
-    <input type="radio" value="Nam">Nam </input>
-    <input type="radio" value="Nữ">Nữ </input></th>
+    <input type="radio" name="sex" value="Nam">Nam </input>
+    <input type="radio" name="sex" value="Nữ">Nữ </input></th>
     <tr/>
 <tr> <th>Địa chỉ: <th>
     <input type="text" name="địa chỉ" id="personal information" style="height: 40px"></th>
@@ -36,9 +37,12 @@
     <tr/>
 </table>
 
-    <input type="submit" value="Đăng ký">
-    <input type="reset" value="Nhập lại">
+    <button type="submit" value="Đăng ký">Summit</button>
+    <button type="reset" value="Nhập lại">Reset</button>
 
 </fieldset>
+</form>
+
+</script>
 </body>
 </html>
