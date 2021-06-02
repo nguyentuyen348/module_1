@@ -188,9 +188,7 @@ function randomPiece() {
     return new Piece(PIECES[r][0], PIECES[r][1]);
 }
 
-function reset1() {
-    location.reload();
-}
+
 document.addEventListener('keydown', function (e) {
     if (e.keyCode === 37) {
         p.moveLeft();
@@ -206,9 +204,7 @@ document.addEventListener('keydown', function (e) {
 
 let gameOver = false;
 let interval;
-
 let p = randomPiece();
-
 let music = document.getElementById('gameMusic');
 
 
@@ -230,7 +226,9 @@ function drop() {
             }
         }, time)
 }
-
+function reset1() {
+    location.reload();
+}
 
 
 
