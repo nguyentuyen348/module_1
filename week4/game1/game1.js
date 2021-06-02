@@ -1,5 +1,5 @@
-const canvas= document.getElementById("pic1");
-const ctx= canvas.getContext("2d");
+const canvas= document.getElementById('pic1');
+const ctx= canvas.getContext('2d');
 
 const row=5;
 const col=4;

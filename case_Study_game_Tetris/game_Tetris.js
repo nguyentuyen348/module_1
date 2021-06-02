@@ -4,14 +4,14 @@ const ctx = canvas.getContext('2d');
 const ROW = 18;
 const COL = 10;
 const SQ = 40;
-const COLOR = '#ffff66';
+const COLOR = '#fdfdc2';
 let score = 0;
 
 function drawSquare(x, y, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x * SQ, y * SQ, SQ, SQ);
 
-    ctx.strokeStyle = '#ff9999';
+    ctx.strokeStyle = '#616163';
     ctx.strokeRect(x * SQ, y * SQ, SQ, SQ);
 }
 
@@ -22,7 +22,6 @@ for (let r = 0; r < ROW; r++) {
         board[r][c] = COLOR;
     }
 }
-console.log(board);
 
 function drawBoard() {
     for (let r = 0; r < ROW; r++) {
@@ -90,6 +89,8 @@ class Piece {
             this.draw();
         }
     }
+
+
 // check va chạm với cạnh dưới và giữa các tetromino//
     lock() {
         for (let r = 0; r < this.activeTetromino.length; r++) {
@@ -98,52 +99,53 @@ class Piece {
                     continue
                 }
                 if (this.y + r < 0) {
-                    document.getElementById('gameover').innerHTML=
-                    'GAME OVER!!';
+                    document.getElementById('gameover').innerHTML =
+                        'GAME OVER!!';
+                    mutedMusic();
                     gameOver = true;
                     break;
                 }
-                board[this.y+r][this.x+c]=this.color;
+                board[this.y + r][this.x + c] = this.color;
             }
         }
         // score://
         for (let r = 0; r < ROW; r++) {
-            let rowFull=true;
-            for (let c = 0; c <COL ; c++) {
-             rowFull= rowFull&&(board[r][c] !== COLOR)
+            let rowFull = true;
+            for (let c = 0; c < COL; c++) {
+                rowFull = rowFull && (board[r][c] !== COLOR)
             }
-            if (rowFull){
-                for (let r1 = r; r1 >1 ; r1--) {
-                    for (let c = 0; c <COL ; c++) {
-                        board[r1][c]=board[r1-1][c];
+            if (rowFull) {
+                for (let r1 = r; r1 > 1; r1--) {
+                    for (let c = 0; c < COL; c++) {
+                        board[r1][c] = board[r1 - 1][c];
                     }
                 }
-                for (let c=0;c<COL;c++){
-                    board[0][c]=COLOR;
+                for (let c = 0; c < COL; c++) {
+                    board[0][c] = COLOR;
                 }
-                score+=10;
+                score += 10;
             }
         }
-        drawBoard();
-        document.querySelector('#score').innerHTML=score;
+            drawBoard();
+        document.querySelector('#score').innerHTML = score;
 
     }
 
-    rotate(){
-        let next = this.tetromino[(this.tetrominoN+1)%this.tetromino.length];
-        let move=0;
-        if (this.collision(0,0,next)){
-            if (this.x>COL/2){
-                move=-1;
-            }else {
-                move=1;
+    rotate() {
+        let next = this.tetromino[(this.tetrominoN + 1) % this.tetromino.length];
+        let move = 0;
+        if (this.collision(0, 0, next)) {
+            if (this.x > COL / 2) {
+                move = -1;
+            } else {
+                move = 1;
             }
         }
-        if (!this.collision(0,0,next)){
+        if (!this.collision(0, 0, next)) {
             this.unDraw();
-            this.x+=move;
-            this.tetrominoN=(this.tetrominoN+1)%this.tetromino.length;
-            this.activeTetromino=this.tetromino[this.tetrominoN];
+            this.x += move;
+            this.tetrominoN = (this.tetrominoN + 1) % this.tetromino.length;
+            this.activeTetromino = this.tetromino[this.tetrominoN];
             this.draw();
         }
     }
@@ -158,7 +160,7 @@ class Piece {
                 let newY = this.y + r + y;
 
 
-                if (newX < 0 || newX >= COL || newY>=ROW) {
+                if (newX < 0 || newX >= COL || newY >= ROW) {
                     return true
                 }
                 if (newY < 0) {
@@ -174,11 +176,11 @@ class Piece {
 }
 
 const PIECES = [
-    [I, '#0000ff'],
-    [J, '#0000ff'],
-    [O, '#0000ff'],
-    [S, '#0000ff'],
-    [T, '#0000ff'],
+    [I, '#ee00ff'],
+    [J, '#ff0066'],
+    [O, '#00e600'],
+    [S, '#1a1aff'],
+    [T, '#ff751a'],
 ];
 
 function randomPiece() {
@@ -186,7 +188,9 @@ function randomPiece() {
     return new Piece(PIECES[r][0], PIECES[r][1]);
 }
 
-
+function reset1() {
+    location.reload();
+}
 document.addEventListener('keydown', function (e) {
     if (e.keyCode === 37) {
         p.moveLeft();
@@ -204,22 +208,29 @@ let gameOver = false;
 let interval;
 
 let p = randomPiece();
-console.log(p);
 
-let music= document.getElementById('gameMusic');
-function playMusic(){
+let music = document.getElementById('gameMusic');
+
+
+function playMusic() {
     music.play();
 }
+function mutedMusic(){
+    music.pause();
+}
+
 
 function drop() {
-    interval = setInterval(function () {
-        if (!gameOver) {
-            p.moveDown();
-        } else {
-            clearInterval(interval)
-        }
-    }, 500)
+    let time = 1000;
+        interval = setInterval(function () {
+            if (!gameOver) {
+                p.moveDown();
+            } else {
+                clearInterval(interval)
+            }
+        }, time)
 }
+
 
 
 
