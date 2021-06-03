@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrscore = [2, 6, 5, 4, 8, 7, 9];
+    let max1 = arrscore[0];
+
+        for (let i = 0; i < arrscore.length; i++) {
+            if (arrscore[i] > max1) {
+                max1 = arrscore[i];
+            }
+        }
+    for (let i = 0; i < arrscore.length; i++) {
+        if (arrscore[i] === max1) {
+            arrscore[i] = '';
+        }
+    }
+    let max2 = arrscore[0];
+    for (let i = 0; i < arrscore.length; i++) {
+        if (arrscore[i] > max2) {
+            max2 = arrscore[i];
+        }
+    }
+    for (let i = 0; i < arrscore.length; i++) {
+        if (arrscore[i] === max2) {
+            arrscore[i] = '';
+        }
+    }
+    let max3 = arrscore[0];
+    for (let i = 0; i < arrscore.length; i++) {
+        if (arrscore[i] > max3) {
+            max3 = arrscore[i];
+        }
+    }
+    document.write(max3);
+
+</script>
+</body>
+</html>

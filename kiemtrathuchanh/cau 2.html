@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [];
+    let num = +prompt('so luong phan tu muon nhap vao mang');
+    for (let i = 0; i < num; i++) {
+        array.push(+prompt('so nguyen muon truyen vao mang'));
+    }
+
+    let x = +prompt('nhap so x');
+
+    function tryRemoveFromArray() {
+        if (array.indexOf(x) === -1) {
+            return array;
+        } else {
+            for (let i = 0; i < array.length; i++) {
+                if (x === array[i]) {
+                    array.splice(array.indexOf(x),1);
+                    return array;
+                }
+            }
+        }
+    }
+    tryRemoveFromArray(array);
+    document.write(array);
+</script>
+</body>
+</html>
