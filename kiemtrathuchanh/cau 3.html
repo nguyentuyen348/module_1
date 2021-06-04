@@ -11,6 +11,9 @@
     function isFibonacci() {
         let n1 = 0;
         let n2 = 1;
+        if (n===0){
+            return true;
+        }
         for (let i = 0; i <= n; i++) {
             let a = n1 + n2;
             n1 = n2;
@@ -22,7 +25,7 @@
         return false;
     }
 
-    document.write(isFibonacci(n));
+    document.write(''+isFibonacci(n));
 
 
 </script>
